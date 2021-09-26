@@ -1,6 +1,3 @@
-FROM ubuntu:18.04
-RUN apt-get update
-RUN apt install tomcat9 -y
 FROM maven:3.6-jdk-11 as build
 WORKDIR /tmp/
 COPY src ./src
