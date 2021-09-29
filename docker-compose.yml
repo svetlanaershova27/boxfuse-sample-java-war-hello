@@ -8,7 +8,7 @@ services:
     links:
       - tomcat
     volumes:
-      - /tmp/target/hello-1.0.war:/usr/local/tomcat/webapps/hello-1.0.war:ro
+      - opt:/tmp/target/hello-1.0.war
 
 
   tomcat:
@@ -17,7 +17,9 @@ services:
       context: .
       dockerfile: Dockerfile_2
     volumes:
-      - /tmp/target/hello-1.0.war:/usr/local/tomcat/webapps/hello-1.0.war:rw
+      - opt:/usr/local/tomcat/webapps/hello-1.0.war
     ports:
       - "8087:8080"
+  volumes:
+    opt:
 
