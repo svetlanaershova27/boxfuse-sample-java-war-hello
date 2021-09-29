@@ -14,4 +14,4 @@ services:
     links:
       - "maven"
     ports:
-      - "8080:8080"
+      - "8085:8080"
