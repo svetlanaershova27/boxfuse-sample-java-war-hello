@@ -5,8 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      links:
-        - "tomcat"
+
 
   tomcat:
     container_name: tomcat-container
