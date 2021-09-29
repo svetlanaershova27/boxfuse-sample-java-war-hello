@@ -1,7 +1,7 @@
 version: '3'
 services:
   maven:
-    container_name: maven-container2
+    container_name: maven-container3
     build:
       context: .
       dockerfile: Dockerfile
@@ -12,14 +12,14 @@ services:
 
 
   tomcat:
-    container_name: tomcat-container2
+    container_name: tomcat-container3
     build:
       context: .
       dockerfile: Dockerfile_2
     volumes:
       - /usr/local/tomcat/webapps/hello-1.0.war
     ports:
-      - "8087:8080"
+      - "8088:8080"
 
 
 
