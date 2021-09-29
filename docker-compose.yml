@@ -1,0 +1,23 @@
+version: '3'
+services:
+  maven:
+    container_name: maven-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+      links:
+        - "tomcat"
+
+  tomcat:
+    container_name: tomcat-container
+    build:
+      context: .
+      dockerfile: Dockerfile_2
+    links:
+      - "maven"
+    volumes:
+      - type: bind
+          source: /tmp/target/hello-1.0.war
+          target: /usr/local/tomcat/webapps/hello-1.0.war
+    ports:
+      - "8080:8080"

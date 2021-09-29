@@ -1,0 +1,5 @@
+FROM tomcat:9.0.53-jre8-openjdk-slim-bullseye
+WORKDIR /usr/local/tomcat/webapps
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
+
