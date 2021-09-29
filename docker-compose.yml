@@ -5,13 +5,19 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    links:
+      - tomcat
+    volumes:
+      - /tmp/target/hello-1.0.war:/usr/local/tomcat/webapps/hello-1.0.war:ro
+
 
   tomcat:
     container_name: tomcat-container2
     build:
       context: .
       dockerfile: Dockerfile_2
-    links:
-      - "maven"
+    volumes:
+      - /tmp/target/hello-1.0.war:/usr/local/tomcat/webapps/hello-1.0.war:rw
     ports:
-      - "8086:8080"
+      - "8087:8080"
+
