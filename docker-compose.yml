@@ -14,8 +14,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_2
-    volumes:
-      - /usr/local/tomcat/webapps/hello-1.0.war
+
     ports:
       - "8089:8080"
 
