@@ -1,22 +1,29 @@
+---
 version: '3'
 services:
-  maven:
-    container_name: maven-container3
+  builder:
+    container_name: maven-container1
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - ./:/data/
     links:
       - tomcat
 
-
-  tomcat:
-    container_name: tomcat-container3
+  runner:
+    container_name: tomcat-container1
     build:
       context: .
       dockerfile: Dockerfile_2
-
     ports:
-      - "8089:8080"
+      - "8080:8080"
+    volumes:
+      - ./data:/usr/local/tomcat/webapps/
+    depends_on:
+      - builder
+___
+
 
 
 
