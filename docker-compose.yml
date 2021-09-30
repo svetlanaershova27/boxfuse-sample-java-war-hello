@@ -1,4 +1,3 @@
----
 version: '3'
 services:
   builder:
@@ -22,7 +21,6 @@ services:
       - ./data:/usr/local/tomcat/webapps/
     depends_on:
       - builder
-___
 
 
 
