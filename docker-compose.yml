@@ -1,32 +1,22 @@
 version: '3'
 services:
   builder:
-    container_name: maven2
+    container_name: maven3
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - type: volume
-        source: appdata
-        target: /appdata2
-    command: cp /tmp/target/hello-1.0.war /appdata2
+
     links:
       - runner
 
   runner:
-    container_name: tomcat2
+    container_name: tomcat3
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8085:8080"
-    volumes:
-      - type: volume
-        source: appdata
-        target: /appdata2
-    command: cp /appdata2/hello-1.0.war /usr/local/tomcat/webapps/hello-1.0.war
-volumes:
-  appdata2:
+      - "8086:8080"
+
 
 
 
