@@ -14,9 +14,7 @@ services:
   runner:
     container_name: tomcat5
     image: tomcat:9.0.53-jre11-openjdk
-    build:
-      context: /usr/local/tomcat/webapps/
-      dockerfile: Dockerfile
+    build .
     ports:
       - "8086:8080"
 
