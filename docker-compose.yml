@@ -14,11 +14,10 @@ services:
   runner:
     container_name: tomcat55
     image: tomcat:9.0.53-jre11-openjdk
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/local/tomcat/webapps/hello-1.0.war
     ports:
-      - "8086:8080"
+      - "8090:8080"
 
 
 
