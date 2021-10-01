@@ -14,7 +14,6 @@ services:
   runner:
     container_name: tomcat5
     image: tomcat:9.0.53-jre11-openjdk
-    build .
     ports:
       - "8086:8080"
 
