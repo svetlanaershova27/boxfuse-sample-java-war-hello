@@ -1,4 +1,4 @@
-FROM maven:3.6-jdk-11 as builder_1
+FROM maven:3.6.0-jdk-11 as builder_1
 WORKDIR /tmp/
 COPY src ./src
 COPY pom.xml .

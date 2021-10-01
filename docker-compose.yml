@@ -2,9 +2,9 @@ version: '3'
 services:
   builder:
     container_name: maven5
-    image: maven:3.6-jdk-11
+    image: maven:3.6.0-jdk-11
     build:
-      context: ./
+      context: ./package
       dockerfile: Dockerfile
     ports:
       - "8087:8080"
@@ -15,7 +15,7 @@ services:
     container_name: tomcat5
     image: tomcat:9.0.53-jre11-openjdk
     build:
-      context: ./
+      context: ./prod
       dockerfile: Dockerfile
     ports:
       - "8086:8080"
