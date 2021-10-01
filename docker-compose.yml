@@ -1,20 +1,17 @@
 version: '3'
 services:
   builder:
-    container_name: mavenop
-    build:
-
-      dockerfile: Dockerfile
+    container_name: maven5
+    build: .
     ports:
       - "8087:8080"
     links:
       - runner
 
   runner:
-    container_name: tomcatop
-    build:
-
-      dockerfile: Dockerfile
+    container_name: tomcat5
+    image: tomcat:9.0.53-jre11-openjdk
+    build: .
     ports:
       - "8086:8080"
 
