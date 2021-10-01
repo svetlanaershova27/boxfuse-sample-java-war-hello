@@ -1,7 +1,7 @@
 version: '3'
 services:
   builder:
-    container_name: maven5
+    container_name: maven55
     image: maven:3.6.0-jdk-11
     build:
       context: ./
@@ -12,10 +12,12 @@ services:
       - runner
 
   runner:
-    container_name: tomcat5
+    container_name: tomcat55
     image: tomcat:9.0.53-jre11-openjdk
     ports:
       - "8086:8080"
+    depends_on:
+      - builder
 
 
 
