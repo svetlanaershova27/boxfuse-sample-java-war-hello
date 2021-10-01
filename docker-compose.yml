@@ -2,7 +2,7 @@ version: '3'
 services:
   builder:
     container_name: maven
-    image: maven:3.6.0-jdk-10
+    image: maven:3.6.0-jdk-7-alpine
     build:
       context: ./
       dockerfile: Dockerfile

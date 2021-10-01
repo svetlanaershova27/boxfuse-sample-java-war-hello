@@ -1,4 +1,4 @@
-FROM maven:3.6.0-jdk-10 as built
+FROM maven:3.6.0-jdk-7-alpine as built
 WORKDIR /tmp/
 COPY src ./src
 COPY pom.xml .
