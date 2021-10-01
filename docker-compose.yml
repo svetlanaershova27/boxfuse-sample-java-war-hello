@@ -8,12 +8,14 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/data
+    ports:
+      - "8014:8080"
     links:
       - runner
 
   runner:
     container_name: tomcat
-    image: tomcat:8.5.3-jre8-alpine
+    image: tomcat:9.0-alpine
     build:
       context: ./
       dockerfile: Dockerfile
