@@ -2,12 +2,10 @@ version: '3'
 services:
   builder:
     container_name: maven
-    image: maven:3.6.0-jdk-11
+    image: maven:3.6.0-jdk-10
     build:
       context: ./
       dockerfile: Dockerfile
-    volumes:
-      - ./:/data
     links:
       - runner
     ports:
@@ -19,8 +17,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    volumes:
-      - /data:/usr/local/tomcat/webapps
+
     ports:
       - "8034:8080"
 
