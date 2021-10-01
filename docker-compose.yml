@@ -8,8 +8,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/data
-    ports:
-      - "8014:8080"
     links:
       - runner
 
@@ -22,7 +20,7 @@ services:
     volumes:
       - /data:/usr/local/tomcat/webapps
     ports:
-      - "8024:8080"
+      - "8034:8080"
 
 
 
