@@ -14,10 +14,12 @@ services:
   runner:
     container_name: tomcat55
     image: tomcat:9.0.53-jre11-openjdk
+    build:
+      context: ./
+      dockerfile: Dockerfile
     ports:
       - "8086:8080"
-    depends_on:
-      - builder
+
 
 
 
