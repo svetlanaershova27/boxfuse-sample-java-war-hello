@@ -10,6 +10,8 @@ services:
       - ./:/data
     links:
       - runner
+    ports:
+      - "8094:8080"
 
   runner:
     container_name: tomcat
