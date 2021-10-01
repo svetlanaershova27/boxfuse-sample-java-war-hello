@@ -7,9 +7,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     volumes:
-      - type: volume
-        source: ./
-        target: /usr/local/tomcat/target
+      - ./:/usr/local/tomcat/target
     ports:
       - "8087:8080"
     links:
@@ -19,14 +17,9 @@ services:
     container_name: tomcat55
     image: tomcat:9.0.53-jre11-openjdk
     volumes:
-      - type: volume
-        source: ./
-        target: /usr/local/tomcat/webapps
+      - ./:/usr/local/tomcat/webapps
     ports:
       - "8090:8080"
-
-  volumes:
-    ./:
 
 
 
