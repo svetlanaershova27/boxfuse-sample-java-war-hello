@@ -14,12 +14,9 @@
         state: present
     - name: Ensure project is present
       copy:
-        src: ./src
-        dest: ./data
-    - name: Ensure pom is present
-      copy:
-        src: pom.xml
-        dest: ./data
+        src: /home/ser1/boxfuse-sample-java-war-hello
+        dest: ./
+
     - name: Ensure maven service is started
       shell: "mvn clean package"
     - name: Ensure project is packaged
@@ -37,7 +34,7 @@
         state: present
     - name: Ensure project is present
       copy:
-        src: ./data/target/hello-1.0.war
+        src: ./target/hello-1.0.war
         dest: /usr/local/tomcat/webapps/
     - name: Ensure tomcat service is started
       service:
