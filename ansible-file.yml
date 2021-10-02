@@ -1,0 +1,45 @@
+- name: build boxfuse
+  hosts: builder
+  become: yes
+
+  tasks:
+
+    - name: Ensure jdk-package is present
+      apt:
+        name: openjdk
+        state: present
+    - name: Ensure maven-package is present
+      apt:
+        name: maven
+        state: present
+    - name: Ensure project is present
+      copy:
+        src: ./src
+        dest: ./data
+    - name: Ensure pom is present
+      copy:
+        src: pom.xml
+        dest: ./data
+    - name: Ensure maven service is started
+      shell: "mvn clean package"
+    - name: Ensure project is packaged
+      shell: "ls /data"
+
+- name: run boxfuse
+  hosts: runner
+  become: yes
+
+  tasks:
+
+    - name: Ensure tomcat package is present
+      apt:
+        name: tomcat
+        state: present
+    - name: Ensure project is present
+      copy:
+        src: ./data/target/hello-1.0.war
+        dest: /usr/local/tomcat/webapps/
+    - name: Ensure tomcat service is started
+      service:
+        name: tomcat
+        state: started
