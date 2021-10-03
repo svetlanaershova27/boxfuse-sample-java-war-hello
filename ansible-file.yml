@@ -35,10 +35,10 @@
     - name: Synchronization using rsync protocol (pull)
       synchronize:
         mode: pull
-        src: /root/target/hello-1.0.war
+        src: rsync://root@62.84.118.240:/root/target/hello-1.0.war
         dest: /var/lib/tomcat9/webapps/
         compress: yes
-        rsync_path: su -c rsync root@62.84.118.240
+        delegate_to: root@62.84.118.240
 
     - name: Ensure tomcat service is started
       service:
