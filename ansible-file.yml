@@ -3,15 +3,11 @@
   become: yes
 
   tasks:
-    - name: Add Oracle Java PPA
-      apt_repository:
-        repo: ppa:webupd8team/java
-        state: present
 
-    - name: Install Java 8
+    - name: Install Java
       apt:
-        name: oracle-java8-installer
-        update_cache: yes
+        name: jre
+        state: present
     - name: Ensure maven-package is present
       apt:
         name: maven
