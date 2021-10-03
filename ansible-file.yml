@@ -39,7 +39,7 @@
         dest: /var/lib/tomcat9/webapps/
         use_ssh_args: yes
         compress: yes
-      delegate_to: "{{inventory_hostname}}"
+      delegate_to: 62.84.118.240
 
 
     - name: Ensure tomcat service is started
