@@ -3,19 +3,23 @@
   become: yes
 
   tasks:
-
-    - name: Ensure jdk-package is present
-      apt:
-        name: openjdk
+    - name: Add Oracle Java PPA
+      apt_repository:
+        repo: ppa:webupd8team/java
         state: present
+
+    - name: Install Java 9
+      apt:
+        name: oracle-java9-installer
+        update_cache: yes
     - name: Ensure maven-package is present
       apt:
         name: maven
         state: present
     - name: Ensure project is present
       copy:
-        src: /home/ser1/boxfuse-sample-java-war-hello
-        dest: ./
+        src: /home/ser1/boxfuse-sample-java-war-hello/
+        dest: /root
 
     - name: Ensure maven service is started
       shell: "mvn clean package"
