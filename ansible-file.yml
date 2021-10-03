@@ -18,7 +18,12 @@
       shell: "mvn clean package"
     - name: Ensure project is packaged
       shell: "ls /root/target"
-
+    - name: Create a tar.gz archive of a single file.
+      archive:
+        path: /root/target/hello-1.0.war
+        dest: /root/target/hello-1.0.war.tar.gz
+        format: gz
+        force_archive: true
 
 
 - name: run boxfuse
@@ -33,13 +38,7 @@
         state: present
 
     - name: Synchronization using rsync protocol (pull)
-      synchronize:
-        mode: pull
-        src: rsync://root@62.84.118.240:/root/target/hello-1.0.war
-        dest: /var/lib/tomcat9/webapps/
-        use_ssh_args: yes
-        compress: yes
-      delegate_to: 62.84.118.240
+      command: "rsync -avz root@62.84.118.240:/root/target/hello-1.0.war.tar.gz /var/lib/tomcat9/webapps/"
 
 
     - name: Ensure tomcat service is started
