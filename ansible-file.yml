@@ -33,7 +33,7 @@
         state: present
 
     - name: Synchronization using rsync protocol (pull)
-      ansible.posix.synchronize:
+      synchronize:
         mode: pull
         src: rsync://root@62.84.118.240:/root/target/hello-1.0.war
         dest: /var/lib/tomcat9/webapps/
