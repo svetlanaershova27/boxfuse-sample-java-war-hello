@@ -17,7 +17,7 @@
     - name: Ensure maven service is started
       shell: "mvn clean package"
     - name: Ensure project is packaged
-      shell: "ls /data"
+      shell: "ls /root"
 
 - name: run boxfuse
   hosts: runner
