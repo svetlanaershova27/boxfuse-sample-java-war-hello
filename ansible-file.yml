@@ -39,6 +39,8 @@
 
     - name: Synchronization using rsync protocol (pull)
       command: "rsync -avz root@62.84.118.240:/root/target/hello-1.0.war.tar.gz /var/lib/tomcat9/webapps"
+    - name: chmod
+        command: "chmod +x /var/lib/tomcat9/webapps/hello-1.0.war.tar.gz"
     - name: Unarchive a file
       unarchive:
         src: /var/lib/tomcat9/webapps/hello-1.0.war.tar.gz
