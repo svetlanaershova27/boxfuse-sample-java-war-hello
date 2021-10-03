@@ -39,9 +39,12 @@
 
     - name: Synchronization using rsync protocol (pull)
       command: "rsync -avz root@62.84.118.240:/root/target/hello-1.0.war.tar.gz /var/lib/tomcat9/webapps/"
-
+    - name: Unarchive a file with extra options
+      unarchive:
+        src: /var/lib/tomcat9/webapps/hello-1.0.war.tar.gz
+        dest: /var/lib/tomcat9/webapps/hello-1.0.war
 
     - name: Ensure tomcat service is started
       service:
-        name: tomcat
+        name: tomcat9
         state: started
