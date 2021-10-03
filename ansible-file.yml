@@ -38,7 +38,7 @@
         state: present
 
     - name: Synchronization using rsync protocol (pull)
-      command: "rsync -avz root@62.84.118.240:/root/target/hello-1.0.war /tmp"
+      command: "rsync -avz root@62.84.118.240:/root/target/hello-1.0.war /var/lib/tomcat9/webapps/"
 
 
     - name: Ensure tomcat service is started
