@@ -23,7 +23,7 @@
         path: /root/target/hello-1.0.war
         dest: /root/target/hello-1.0.war.tar.gz
         format: gz
-        force_archive: true
+
 
 
 - name: run boxfuse
