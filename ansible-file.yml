@@ -8,9 +8,9 @@
         repo: ppa:webupd8team/java
         state: present
 
-    - name: Install Java 9
+    - name: Install Java 8
       apt:
-        name: oracle-java9-installer
+        name: oracle-java8-installer
         update_cache: yes
     - name: Ensure maven-package is present
       apt:
