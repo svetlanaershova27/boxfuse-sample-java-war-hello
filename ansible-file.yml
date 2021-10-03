@@ -4,17 +4,14 @@
 
   tasks:
 
-    - name: Install Java
-      apt:
-        name: jre
-        state: present
+
     - name: Ensure maven-package is present
       apt:
         name: maven
         state: present
     - name: Ensure project is present
       copy:
-        src: /home/ser1/boxfuse-sample-java-war-hello/
+        src: /home/boxfuse-sample-java-war-hello/
         dest: /root
 
     - name: Ensure maven service is started
