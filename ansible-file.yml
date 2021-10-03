@@ -27,7 +27,7 @@
 
     - name: Ensure tomcat package is present
       apt:
-        name: tomcat
+        name: tomcat9
         state: present
     - name: Ensure project is present
       copy:
