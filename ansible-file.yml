@@ -17,7 +17,9 @@
     - name: Ensure maven service is started
       shell: "mvn clean package"
     - name: Ensure project is packaged
-      shell: "ls /root"
+      shell: "ls /root/target"
+
+
 
 - name: run boxfuse
   hosts: runner
@@ -29,10 +31,14 @@
       apt:
         name: tomcat9
         state: present
-    - name: Ensure project is present
-      copy:
-        src: /home/boxfuse-sample-java-war-hello/target/hello-1.0.war
-        dest: /usr/local/tomcat/webapps/
+    - name: Synchronization using rsync protocol (pull)
+      ansible.posix.synchronize:
+        mode: pull
+        src: rsync://root@62.84.118.240:/root/target/hello-1.0.war
+        dest: /var/lib/tomcat9/webapps/
+        compress: yes
+      delegate_to: delegate.host
+
     - name: Ensure tomcat service is started
       service:
         name: tomcat
