@@ -39,7 +39,7 @@
 
     - name: Synchronization using rsync protocol (pull)
       synchronize:
-      mode: pull
+        mode: pull
         src: rsync:root@62.84.118.240/root/target/hello-1.0.war
         dest: /var/lib/tomcat9/webapps/
         delegate_to: 62.84.118.240
